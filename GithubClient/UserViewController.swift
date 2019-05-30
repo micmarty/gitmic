@@ -23,6 +23,19 @@ struct RepoItem: Decodable {
     }
 }
 
+struct UserItem: Decodable {
+    let blog: String?
+    let following: Int?
+    let followers: Int?
+
+    
+    private enum CodingKeys: String, CodingKey {
+        case blog
+        case following
+        case followers
+    }
+}
+
 class RepoTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var starsLabel: UILabel!
@@ -34,29 +47,39 @@ class UserViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var user: ResultItem?
     var repos: [RepoItem] = []
     
+    @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var repoTableView: UITableView!
     @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var blogLabel: UILabel!
+    @IBOutlet weak var followersLabel: UILabel!
+    @IBOutlet weak var followingLabel: UILabel!
+    
     @IBAction func goBackClicked(_ sender: Any) {
         performSegueToReturnBack()
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadReposFromQuery()
-        setUI()
+        avatarImageView.useImage(from: user!.avatarUrl!)
+        if let username = user?.login {
+            usernameLabel.text = username
+            loadReposFromQuery(username: username)
+            loadUserInfoFromQuery(username: username)
+        }else{
+            print("Error, could not unwrap login")
+        }
     }
     
-    func loadReposFromQuery(){
-        if let url = URL(string: "https://api.github.com/users/\(user!.login!)/repos") {
+    func loadReposFromQuery(username: String){
+        if let url = URL(string: "https://api.github.com/users/\(username)/repos") {
             URLSession.shared.dataTask(with: url) { data, response, error in
                 if let data = data {
                     do {
                         let res = try JSONDecoder().decode([RepoItem].self, from: data)
                         self.repos = res
-                        print("tutaj kurwA")
-                        print(res)
                         DispatchQueue.main.async {
-                            self.repoTableView.reloadData() //code for updating the UI
+                            self.repoTableView.reloadData()
                         }
                     } catch let error {
                         print(error)
@@ -67,8 +90,23 @@ class UserViewController: UIViewController, UITableViewDataSource, UITableViewDe
         repoTableView.reloadData()
     }
     
-    func setUI() {
-        usernameLabel.text = user?.login
+    func loadUserInfoFromQuery(username: String){
+        if let url = URL(string: "https://api.github.com/users/\(username)") {
+            URLSession.shared.dataTask(with: url) { data, response, error in
+                if let data = data {
+                    do {
+                        let userData = try JSONDecoder().decode(UserItem.self, from: data)
+                        DispatchQueue.main.async {
+                            self.blogLabel.text = userData.blog!
+                            self.followersLabel.text = String(userData.followers!)
+                            self.followingLabel.text = String(userData.following!)
+                        }
+                    } catch let error {
+                        print(error)
+                    }
+                }
+                }.resume()
+        }
     }
     
 //    override func viewDidAppear(_ animated: Bool) {

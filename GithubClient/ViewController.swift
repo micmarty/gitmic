@@ -59,9 +59,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 let gitData = try decoder.decode(SearchResults.self, from: data)
                 self.users = gitData.items
                 DispatchQueue.main.async {
-                    self.tableView.reloadData() //code for updating the UI
+                    self.tableView.reloadData()
                 }
-                //print(gitData.totalCount)
             } catch let err {
                 print("Err", err)
             }
@@ -71,7 +70,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @IBAction func onSearchUsersButtonClick(_ sender: Any) {
         if let typedUsername = textField.text{
-            loadUsersFromQuery(username: textField.text!)
+            loadUsersFromQuery(username: typedUsername)
         }
     }
 
@@ -87,7 +86,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let user = users[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell") as! UserTableViewCell
-//        print(cell)
         cell.usernameField?.text = user.login
         cell.avatarImageView?.useImage(from: user.avatarUrl!)
         return cell
@@ -101,8 +99,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "MasterToDetail" {
             let destVC = segue.destination as! UserViewController
-            destVC.user = sender as? ResultItem
-//            destVC.loadReposFromQuery()
+            if let user = sender as? ResultItem {
+                destVC.user = user
+            }
         }
     }
 
