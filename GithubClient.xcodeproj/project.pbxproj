@@ -14,6 +14,7 @@
 		098B5794229FF0C500A90266 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 098B5792229FF0C500A90266 /* LaunchScreen.storyboard */; };
 		098B579F229FF0C500A90266 /* GithubClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098B579E229FF0C500A90266 /* GithubClientTests.swift */; };
 		098B57AA229FF0C500A90266 /* GithubClientUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098B57A9229FF0C500A90266 /* GithubClientUITests.swift */; };
+		098B57B822A014B200A90266 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098B57B722A014B200A90266 /* UserViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		098B57A5229FF0C500A90266 /* GithubClientUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GithubClientUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		098B57A9229FF0C500A90266 /* GithubClientUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubClientUITests.swift; sourceTree = "<group>"; };
 		098B57AB229FF0C500A90266 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		098B57B722A014B200A90266 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				098B5790229FF0C500A90266 /* Assets.xcassets */,
 				098B5792229FF0C500A90266 /* LaunchScreen.storyboard */,
 				098B5795229FF0C500A90266 /* Info.plist */,
+				098B57B722A014B200A90266 /* UserViewController.swift */,
 			);
 			path = GithubClient;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				098B578C229FF0C400A90266 /* ViewController.swift in Sources */,
+				098B57B822A014B200A90266 /* UserViewController.swift in Sources */,
 				098B578A229FF0C400A90266 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

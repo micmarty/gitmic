@@ -50,9 +50,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var searchUsersButton: UIButton!
     
-    @IBAction func onSearchUsersButtonClick(_ sender: Any) {
-        let typedUsername = textField.text
-        guard let gitUrl = URL(string: "https://api.github.com/search/users?q=\(typedUsername!)") else { return }
+    func loadUsersFromQuery(username: String){
+        guard let gitUrl = URL(string: "https://api.github.com/search/users?q=\(username)") else { return }
         URLSession.shared.dataTask(with: gitUrl) { (data, response, error) in
             guard let data = data else { return }
             do {
@@ -64,12 +63,19 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 print("Err", err)
             }
             }.resume()
-        self.tableView.reloadData()
+    }
+    
+    @IBAction func onSearchUsersButtonClick(_ sender: Any) {
+        if let typedUsername = textField.text{
+            loadUsersFromQuery(username: typedUsername)
+            tableView.reloadData()
+        }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        loadUsersFromQuery(username: "micma")
+        tableView.reloadData()
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -85,10 +91,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return cell
     }
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let user = users[indexPath.row]
-//        performSegue(withIdentifier: "MasterToDetail", sender: video)
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let user = users[indexPath.row]
+        performSegue(withIdentifier: "MasterToDetail", sender: user)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "MasterToDetail" {
+            let destVC = segue.destination as! UserViewController
+            destVC.user = sender as? ResultItem
+        }
+    }
 
 }
 

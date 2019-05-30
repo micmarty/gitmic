@@ -81,11 +81,39 @@
                         <outlet property="searchUsersButton" destination="WRS-YM-Vgo" id="h2V-QC-1Zq"/>
                         <outlet property="tableView" destination="RmU-gz-gsm" id="Rra-Rm-0FF"/>
                         <outlet property="textField" destination="lN6-3f-k1r" id="4xA-YG-cDH"/>
+                        <segue destination="sZ5-04-uiy" kind="show" identifier="MasterToDetail" id="21A-Gv-0ye"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="37.681159420289859" y="18.75"/>
+        </scene>
+        <!--User View Controller-->
+        <scene sceneID="yzc-nA-iBc">
+            <objects>
+                <viewController id="sZ5-04-uiy" customClass="UserViewController" customModule="GithubClient" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nIA-dZ-foy">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rs6-7c-CoX">
+                                <rect key="frame" x="96" y="83" width="222" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="HwM-KQ-DZ4"/>
+                    </view>
+                    <connections>
+                        <outlet property="usernameLabel" destination="rs6-7c-CoX" id="7qX-o8-kcE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I10-aM-Pnu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="795" y="18"/>
         </scene>
     </scenes>
 </document>
