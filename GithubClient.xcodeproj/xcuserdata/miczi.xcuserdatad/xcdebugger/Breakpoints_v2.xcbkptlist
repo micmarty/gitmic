@@ -2,4 +2,130 @@
 <Bucket
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GithubClient/UserViewController.swift"
+            timestampString = "580929585.541033"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GithubClient/UserViewController.swift"
+            timestampString = "580929585.541755"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "UserViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GithubClient.UserViewController.repos.getter : Swift.Array&lt;GithubClient.RepoItem&gt;"
+                  moduleName = "GithubClient"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/miczi/Repos/GithubClient/GithubClient/UserViewController.swift"
+                  timestampString = "580925641.302436"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "114">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GithubClient.UserViewController.repos.setter : Swift.Array&lt;GithubClient.RepoItem&gt;"
+                  moduleName = "GithubClient"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/miczi/Repos/GithubClient/GithubClient/UserViewController.swift"
+                  timestampString = "580925641.30643"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "128">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GithubClient.UserViewController.repos.modify : Swift.Array&lt;GithubClient.RepoItem&gt;"
+                  moduleName = "GithubClient"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/miczi/Repos/GithubClient/GithubClient/UserViewController.swift"
+                  timestampString = "580925641.3111041"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "18">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GithubClient.UserViewController.repos.modify : Swift.Array&lt;GithubClient.RepoItem&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "GithubClient"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/miczi/Repos/GithubClient/GithubClient/UserViewController.swift"
+                  timestampString = "580925641.314747"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GithubClient.UserViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; GithubClient.UserViewController"
+                  moduleName = "GithubClient"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/miczi/Repos/GithubClient/GithubClient/UserViewController.swift"
+                  timestampString = "580925641.319319"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "360">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GithubClient.UserViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;GithubClient.UserViewController&gt;"
+                  moduleName = "GithubClient"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/miczi/Repos/GithubClient/GithubClient/UserViewController.swift"
+                  timestampString = "580925641.324033"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "280">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

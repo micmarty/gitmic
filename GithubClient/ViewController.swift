@@ -58,24 +58,26 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 let decoder = JSONDecoder()
                 let gitData = try decoder.decode(SearchResults.self, from: data)
                 self.users = gitData.items
-                print(gitData.totalCount)
+                DispatchQueue.main.async {
+                    self.tableView.reloadData() //code for updating the UI
+                }
+                //print(gitData.totalCount)
             } catch let err {
                 print("Err", err)
             }
             }.resume()
+        tableView.reloadData()
     }
     
     @IBAction func onSearchUsersButtonClick(_ sender: Any) {
         if let typedUsername = textField.text{
-            loadUsersFromQuery(username: typedUsername)
-            tableView.reloadData()
+            loadUsersFromQuery(username: textField.text!)
         }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadUsersFromQuery(username: "micma")
-        tableView.reloadData()
+        loadUsersFromQuery(username: "ab")
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -85,7 +87,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let user = users[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell") as! UserTableViewCell
-        print(cell)
+//        print(cell)
         cell.usernameField?.text = user.login
         cell.avatarImageView?.useImage(from: user.avatarUrl!)
         return cell
@@ -100,6 +102,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         if segue.identifier == "MasterToDetail" {
             let destVC = segue.destination as! UserViewController
             destVC.user = sender as? ResultItem
+//            destVC.loadReposFromQuery()
         }
     }
 
